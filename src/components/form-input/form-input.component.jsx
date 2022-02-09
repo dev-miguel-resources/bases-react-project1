@@ -1,7 +1,15 @@
 import React from "react";
 
-const FormInput = () => {
-  return <div>Hello am FormInput!</div>;
-};
+import "./form-input.styles.scss";
+
+const FormInput = ({ handleChange, label, ...otherProps }) => (
+  <div className="group">
+    <input className="form-input" onChange={handleChange} {...otherProps} />
+    {label ? (
+      
+    ) : null}
+  </div>
+);
+
 
 export default FormInput;
