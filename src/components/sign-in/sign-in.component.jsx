@@ -27,6 +27,8 @@ class SignIn extends React.Component {
     const { value, name } = event.target;
 
     this.setState({ [name]: value });
+
+    console.log(this.state);
   };
 
   render() {
@@ -55,7 +57,7 @@ class SignIn extends React.Component {
 
           <div className="buttons">
             <CustomButton type="submit">Sign in</CustomButton>
-            <CustomButton onClick={signInWithGoogle}>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
               Sign in with Google
             </CustomButton>
           </div>
