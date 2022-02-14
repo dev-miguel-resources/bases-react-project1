@@ -8,8 +8,8 @@ import { signInWithGoogle } from "../../firebase/firebase.utils";
 import "./sign-in.styles.scss";
 
 class SignIn extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: "",
@@ -24,13 +24,14 @@ class SignIn extends React.Component {
   };
 
   handleChange = (event) => {
-    const { value, name } = event.target;
+    const { value, name } = event.target; // name, value
 
     this.setState({ [name]: value });
 
     console.log(this.state);
   };
 
+  // design pattern: controlled input
   render() {
     return (
       <div className="sign-in">
@@ -47,18 +48,17 @@ class SignIn extends React.Component {
             required
           />
           <FormInput
-            name="password"
+            name="password" props
             type="password"
-            value={this.state.password}
             handleChange={this.handleChange}
+            value={this.state.password}
             label="password"
             required
           />
-
           <div className="buttons">
             <CustomButton type="submit">Sign in</CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              Sign in with Google
+              Sign in with google
             </CustomButton>
           </div>
         </form>
